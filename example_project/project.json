@@ -1,0 +1,40 @@
+{
+  "name": "My Gym Training",
+  "created": "2026-01-09",
+  "workouts": [
+    {
+      "date": "2026-01-06",
+      "exercises": [
+        {
+          "name": "Bench Press",
+          "sets": 3,
+          "reps": 10,
+          "weight_kg": 80
+        },
+        {
+          "name": "Squat",
+          "sets": 3,
+          "reps": 12,
+          "weight_kg": 100
+        }
+      ]
+    },
+    {
+      "date": "2026-01-08",
+      "exercises": [
+        {
+          "name": "Deadlift",
+          "sets": 3,
+          "reps": 8,
+          "weight_kg": 120
+        },
+        {
+          "name": "Pull-ups",
+          "sets": 3,
+          "reps": 10,
+          "weight_kg": 0
+        }
+      ]
+    }
+  ]
+}
