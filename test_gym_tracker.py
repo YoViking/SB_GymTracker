@@ -142,6 +142,17 @@ class TestGymTrackerLocalLoading(unittest.TestCase):
         workouts = self.tracker.list_workouts()
         
         self.assertEqual(workouts, "No workouts found in project")
+    
+    def test_load_invalid_json(self):
+        """Test loading from folder with invalid JSON raises error"""
+        project_file = Path(self.test_dir) / "project.json"
+        with open(project_file, 'w') as f:
+            f.write("{invalid json content")
+        
+        with self.assertRaises(ValueError) as context:
+            self.tracker.load_project_from_folder(self.test_dir)
+        
+        self.assertIn("Invalid JSON", str(context.exception))
 
 
 if __name__ == '__main__':

@@ -4,9 +4,7 @@ Super Basic Gym Tracker - Main Application
 Load and manage gym tracking data from local folders
 """
 
-import os
 import json
-from datetime import datetime
 from pathlib import Path
 
 
@@ -48,15 +46,15 @@ class GymTracker:
             )
         
         # Load project data
-        with open(project_file, 'r', encoding='utf-8') as f:
-            self.project_data = json.load(f)
+        try:
+            with open(project_file, 'r', encoding='utf-8') as f:
+                self.project_data = json.load(f)
+        except json.JSONDecodeError as e:
+            raise ValueError(f"Invalid JSON in project file: {e}")
         
         self.project_path = folder
         
-        print(f"✓ Project loaded successfully from: {folder_path}")
-        print(f"  Project name: {self.project_data.get('name', 'Unnamed')}")
-        print(f"  Workouts: {len(self.project_data.get('workouts', []))}")
-        
+        # Return success info
         return self.project_data
     
     def get_project_info(self):

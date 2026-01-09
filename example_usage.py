@@ -16,6 +16,9 @@ def main():
     print("Example 1: Loading example project...")
     try:
         project_data = tracker.load_project_from_folder("./example_project")
+        print(f"✓ Project loaded successfully")
+        print(f"  Project name: {project_data.get('name', 'Unnamed')}")
+        print(f"  Workouts: {len(project_data.get('workouts', []))}")
         print()
         
         # Display project info
